@@ -1,0 +1,8 @@
+.social {
+  padding: 45px 0 15px;
+}
+@media (min-width: 768px) {
+  .social {
+    padding: 60px 0 30px;
+  }
+}

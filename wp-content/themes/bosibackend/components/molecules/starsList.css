@@ -1,0 +1,16 @@
+.list-starsList {
+  padding-left: 20px;
+}
+.title-starsList {
+  font-size: 1.3em;
+  margin-bottom: 1.3em;
+}
+@media (max-width: 768px) {
+  .list-starsList {
+    width: 86vw;
+    max-width: 320px;
+  }
+  .starList-wrapper {
+    padding: 15px 0 30px;
+  }
+}

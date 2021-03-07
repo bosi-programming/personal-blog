@@ -1,0 +1,31 @@
+.icon-star {
+  width: 12px;
+  height: 12px;
+  margin-right: 20px;
+}
+.flex-star {
+  align-items: center;
+}
+.title-star {
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+.item-star {
+  margin-bottom: 10px;
+}
+@media (min-width: 1024px) {
+  .flex-star {
+    width: 35vw;
+  }
+}
+@media (max-width: 768px) {
+  .icon-star {
+    width: 8px;
+    height: 8px;
+    margin-right: 12px;
+    transform: scale(1.5);
+  }
+  .title-star {
+    font-size: 12px;
+  }
+}

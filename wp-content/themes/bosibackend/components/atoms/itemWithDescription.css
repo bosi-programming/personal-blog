@@ -1,0 +1,10 @@
+.point {
+  text-align: left;
+}
+.link {
+  color: #42b983;
+}
+.link:hover {
+  color: #357a5a;
+  text-decoration: none;
+}
