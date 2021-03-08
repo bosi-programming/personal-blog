@@ -1,0 +1,4 @@
+.social-wrapper :is(i) {
+  color: #0072b1;
+  width: 26px;
+}

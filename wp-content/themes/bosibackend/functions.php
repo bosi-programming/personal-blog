@@ -35,6 +35,15 @@ function cssGlobals()
   );
 
   wp_enqueue_style('global');
+
+  wp_register_style(
+    'fontawesome',
+    get_template_directory_uri() . '/assets/css/all.min.css',
+    array(),
+    '2.0',
+  );
+
+  wp_enqueue_style('fontawesome');
 }
 add_action('get_header', 'cssGlobals', 99);
 
@@ -77,6 +86,13 @@ wp_register_style(
 wp_register_style(
   'starsList',
   get_template_directory_uri() . '/components/molecules/starsList.css',
+  array(),
+  '1.0',
+);
+
+wp_register_style(
+  'single',
+  get_template_directory_uri() . '/single.css',
   array(),
   '1.0',
 );

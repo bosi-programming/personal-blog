@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  src: url("../webfonts/fa-brands-400.eot");
+}
+
 html,
 body,
 pre,
@@ -5,6 +10,22 @@ code,
 kbd,
 samp {
   font-family: "Press Start 2P", cursive;
+}
+
+a {
+  color: #42b983;
+}
+a:hover {
+  color: #357a5a;
+  text-decoration: none;
+}
+
+i {
+  font-size: 26px;
+}
+
+button {
+  padding: 6px 16px !important;
 }
 
 ul {
