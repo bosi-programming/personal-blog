@@ -25,7 +25,8 @@ h6 {
   font-weight: 600;
 }
 
-h1, .editor-post-title .editor-post-title__input {
+h1,
+.editor-post-title .editor-post-title__input {
   font-size: 2em;
   margin: 80px auto 30px;
 }
@@ -39,11 +40,12 @@ h3 {
   font-size: 1.2em;
 }
 
-h2.wp-block, .nes-container {
+h2.wp-block,
+.nes-container {
   margin: 45px auto;
 }
 
-.edit-post-visual-editor>.block-editor__typewriter {
+.edit-post-visual-editor > .block-editor__typewriter {
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
@@ -53,9 +55,15 @@ h2.wp-block, .nes-container {
   max-width: 960px;
 }
 
+pre code {
+  display: block;
+}
+
 code {
-  font-family: "Press Start 2P", cursive;
-  font-size: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  font-family: "Press Start 2P", cursive !important;
+  font-size: 12px !important;
 }
 
 @media (min-width: 768px) {
