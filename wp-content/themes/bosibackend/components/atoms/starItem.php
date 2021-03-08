@@ -22,7 +22,7 @@ for ($i = 1; $i <= 5; $i++) {
 <?php wp_enqueue_style('starItem'); ?>
 
 <li class="item item-star flex flex-star">
-  <h3 class="title title-start"><?= $args['title'] ?></h3>
+  <p class="title title-star"><?= $args['title'] ?></p>
   <div class="stars__div">
     <?php foreach ($starsArray as $star) : ?>
       <i class="nes-icon <?= $star ?> icon icon-star"></i>

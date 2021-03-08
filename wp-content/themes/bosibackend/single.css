@@ -2,3 +2,7 @@
   color: #0072b1;
   width: 26px;
 }
+
+.post__content .nes-container {
+  margin: 30px auto;
+}

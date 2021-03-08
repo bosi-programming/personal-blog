@@ -1,20 +1,11 @@
-.lists-withLinks {
-  padding: 45px 0;
-}
 .list-withLinks {
   margin: 0 20px;
-}
-.title-withLinks {
-  padding-bottom: 30px;
 }
 .description-withLinks {
   text-align: center;
   padding-bottom: 15px;
 }
 @media (min-width: 768px) {
-  .lists-withLinks {
-    padding: 60px 0;
-  }
   .description-withLinks {
     text-align: left;
   }

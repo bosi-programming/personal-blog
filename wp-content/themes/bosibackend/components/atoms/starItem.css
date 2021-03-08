@@ -9,13 +9,14 @@
 .title-star {
   margin-bottom: 0;
   margin-right: 10px;
+  font-weight: 600;
 }
 .item-star {
   margin-bottom: 10px;
 }
 @media (min-width: 1024px) {
   .flex-star {
-    width: 35vw;
+    width: 480px;
   }
 }
 @media (max-width: 768px) {

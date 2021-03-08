@@ -12,6 +12,10 @@ samp {
   font-family: "Press Start 2P", cursive;
 }
 
+code {
+  font-size: 14px;
+}
+
 a {
   color: #42b983;
 }
@@ -36,7 +40,7 @@ p,
 li {
   font-family: Roboto, "Open Sans";
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 h1,
@@ -50,11 +54,20 @@ h6 {
 }
 
 h1 {
+  font-size: 2em;
+  margin: 80px auto 30px;
+}
+
+h2 {
   font-size: 1.5em;
+  margin: 60px auto 15px;
+}
+
+h3 {
+  font-size: 1.2em;
 }
 
 .container {
-  padding: 45px 0;
   max-width: 320px;
   margin-left: auto;
   margin-right: auto;
@@ -62,7 +75,6 @@ h1 {
 
 @media (min-width: 768px) {
   .container {
-    padding: 60px 0;
     max-width: 720px;
   }
   h1,
@@ -92,9 +104,6 @@ h1 {
   justify-content: space-between;
 }
 
-.section-title {
-  margin-bottom: 1.5em;
-}
 @media (max-width: 1024px) {
   .flex {
     flex-wrap: wrap;
