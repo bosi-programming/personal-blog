@@ -18,6 +18,28 @@ function init_theme()
 }
 add_action('init', 'init_theme');
 
+/**
+ * Filter the except length to 30 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function wpdocs_custom_excerpt_length( $length ) {
+    return 30;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+/**
+ * Filter the "read more" excerpt string link to the post.
+ *
+ * @param string $more "[..]" excerpt string.
+ * @return string "..." instead.
+ */
+function wpdocs_excerpt_more( $more ) {
+    return ' ...';
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
 // Adding stylesheets
 
 function cssGlobals()
@@ -50,6 +72,23 @@ function cssGlobals()
   wp_enqueue_style('fontawesome');
 }
 add_action('get_header', 'cssGlobals', 99);
+
+// vendor files
+wp_register_style(
+  'swiper',
+  get_template_directory_uri() . '/assets/css/swipper.min.css',
+  array(),
+  '1.0',
+);
+
+wp_register_script(
+  'swiper',
+  get_template_directory_uri() . '/assets/js/swipper.min.js',
+  '',
+  '1.0',
+  true,
+);
+
 
 // Add single css files
 wp_register_style(
@@ -97,6 +136,13 @@ wp_register_style(
 wp_register_style(
   'single',
   get_template_directory_uri() . '/single.css',
+  array(),
+  '1.0',
+);
+
+wp_register_script(
+  'single',
+  get_template_directory_uri() . '/single.js',
   array(),
   '1.0',
 );

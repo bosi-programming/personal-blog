@@ -1,8 +1,10 @@
 <?
 
 get_header();
+wp_enqueue_style('swiper');
+wp_enqueue_script('swiper');
 wp_enqueue_style('single');
-wp_enqueue_script('post');
+wp_enqueue_script('single');
 ?>
 
 <?php while (have_posts()) : the_post(); ?>
@@ -12,7 +14,7 @@ wp_enqueue_script('post');
       <div class="header__content">
         <?php the_title('<h1 class="post__title">', '</h1>'); ?>
 
-        <p class="p post__date"><?= the_date(); ?> <span class="post-dot">&#183;</span> <span id="time_to_read"></span></p>
+        <p class="p post__date"><?= the_date(); ?></p>
       </div>
       <?php the_post_thumbnail('full', ['class' => 'post__image post__thumbnail', 'alt' =>  get_the_title()]); ?>
     </div>
@@ -20,6 +22,9 @@ wp_enqueue_script('post');
     <div class="post__content">
       <?php the_content(); ?>
     </div>
+
+    <hr class="divider">
+    </hr>
 
     <p class="p post__finish-txt">Questions? Comments? Concerns? <a class="link post__link" href="<?= get_site_url() ?>/contact-us">Contact us</a> for more information. We’ll quickly get back to you with the information you need.</p>
 
@@ -33,14 +38,15 @@ wp_enqueue_script('post');
       </div>
     </div>
 
-    <div class="yellow-line"></div>
+    <hr class="divider">
+    </hr>
   </article>
 
-  <section class="post__related container">
-    <h2 class="blog-section__title">Related Posts</h2>
-    <div class="blog-posts__flex">
+  <section class="container">
+    <h2>Related Posts</h2>
+    <div class="carrousel">
       <i class="fas fa-chevron-left blog-posts__arrow blog-posts__arrow-left"></i>
-      <div id="ajax-posts" class="row blog-posts__wrapper">
+      <div id="ajax-posts" class="row blog-posts__wrapper carrousel-wrapper">
         <div class="swiper-wrapper">
           <?php
           global $wp_query;
@@ -51,17 +57,14 @@ wp_enqueue_script('post');
             <?php
             /* Start the Loop */
             $i = 1;
-            while ($the_query->have_posts()) : $the_query->the_post(); ?>
+            while ($the_query->have_posts() && $i < 10) : $the_query->the_post(); ?>
               <?php $blogPostID = get_the_ID(); ?>
               <?php if ($blogPostID !== $postId) : ?>
                 <a class="swiper-slide blog-post link" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-                  <div class="post_<?= $i ?>">
-                    <img class="blog-post__img" src="<?= get_the_post_thumbnail_url() ?>">
-                    <p class="p blog-post__date"><?= the_date('M j'); ?> <i class="fas fa-ellipsis-v blog-menu-btn" onclick="postToggle(event, <?= $i ?>);"></i>
-                    </p>
-                    <h2 class="h2 blog-post__text blog-post__title"><?= the_title() ?></h2>
-                    <div class="meta-div">
-                    </div>
+                  <div class="nes-container is-rounded slide">
+                    <h3 class="carrousel-post-title"><?= the_title() ?></h3>
+                    <p><?php the_excerpt(); ?></p>
+                    <p><?= get_the_date('M j'); ?></p>
                   </div>
                 </a>
           <?php $i++;
