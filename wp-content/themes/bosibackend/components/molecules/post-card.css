@@ -1,0 +1,11 @@
+.post-card {
+  width: 300px;
+  height: 470px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  height: 448px;
+  justify-content: space-between;
+}

@@ -25,7 +25,7 @@ add_action('init', 'init_theme');
  * @return int (Maybe) modified excerpt length.
  */
 function wpdocs_custom_excerpt_length( $length ) {
-    return 30;
+    return 20;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
@@ -106,18 +106,21 @@ wp_register_style(
 );
 
 wp_register_style(
+  'starItem',
+  get_template_directory_uri() . '/components/atoms/starItem.css',
+  array(),
+  '1.0',
+);
+
+// Molecules styles
+
+wp_register_style(
   'socialSection',
   get_template_directory_uri() . '/components/molecules/socialSection.css',
   array(),
   '1.0',
 );
 
-wp_register_style(
-  'starItem',
-  get_template_directory_uri() . '/components/atoms/starItem.css',
-  array(),
-  '1.0',
-);
 
 wp_register_style(
   'listWithLinks',
@@ -134,6 +137,15 @@ wp_register_style(
 );
 
 wp_register_style(
+  'post-card',
+  get_template_directory_uri() . '/components/molecules/post-card.css',
+  array(),
+  '1.0',
+);
+
+// Pages styles
+
+wp_register_style(
   'single',
   get_template_directory_uri() . '/single.css',
   array(),
@@ -143,6 +155,20 @@ wp_register_style(
 wp_register_script(
   'single',
   get_template_directory_uri() . '/single.js',
+  array(),
+  '1.0',
+);
+
+wp_register_style(
+  'category',
+  get_template_directory_uri() . '/category.css',
+  array(),
+  '1.0',
+);
+
+wp_register_script(
+  'category',
+  get_template_directory_uri() . '/category.js',
   array(),
   '1.0',
 );

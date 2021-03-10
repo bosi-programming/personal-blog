@@ -24,10 +24,6 @@
   align-items: center;
 }
 
-.swiper-slide {
-  width: 300px;
-}
-
 @media (max-width: 768px) {
   .swiper-slide {
     width: 260px;

@@ -60,13 +60,7 @@ wp_enqueue_script('single');
             while ($the_query->have_posts() && $i < 10) : $the_query->the_post(); ?>
               <?php $blogPostID = get_the_ID(); ?>
               <?php if ($blogPostID !== $postId) : ?>
-                <a class="swiper-slide blog-post link" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-                  <div class="nes-container is-rounded slide">
-                    <h3 class="carrousel-post-title"><?= the_title() ?></h3>
-                    <p><?php the_excerpt(); ?></p>
-                    <p><?= get_the_date('M j'); ?></p>
-                  </div>
-                </a>
+                <?php get_template_part('./components/molecules/post-card'); ?>
           <?php $i++;
               endif;
             endwhile;

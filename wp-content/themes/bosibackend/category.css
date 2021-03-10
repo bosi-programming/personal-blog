@@ -1,0 +1,29 @@
+.post-card {
+  width: initial !important;
+}
+.posts-wrapper,
+.wrapper {
+  margin-top: 45px;
+}
+
+.posts-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 45px;
+}
+
+@media (min-width: 768px) {
+  .posts-wrapper,
+  .wrapper {
+    margin-top: 80px;
+  }
+  .posts-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .posts-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
