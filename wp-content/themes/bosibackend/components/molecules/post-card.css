@@ -1,11 +1,20 @@
 .post-card {
   width: 300px;
   height: 470px;
+  padding: 24px !important;
+}
+
+.post-card:hover {
+  transform: scale(1.2);
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
-  height: 448px;
+  height: 432px;
   justify-content: space-between;
+}
+
+.card-text {
+  color: #212529;
 }

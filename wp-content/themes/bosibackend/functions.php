@@ -24,10 +24,11 @@ add_action('init', 'init_theme');
  * @param int $length Excerpt length.
  * @return int (Maybe) modified excerpt length.
  */
-function wpdocs_custom_excerpt_length( $length ) {
-    return 20;
+function wpdocs_custom_excerpt_length($length)
+{
+  return 20;
 }
-add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+add_filter('excerpt_length', 'wpdocs_custom_excerpt_length', 999);
 
 /**
  * Filter the "read more" excerpt string link to the post.
@@ -35,10 +36,11 @@ add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
  * @param string $more "[..]" excerpt string.
  * @return string "..." instead.
  */
-function wpdocs_excerpt_more( $more ) {
-    return ' ...';
+function wpdocs_excerpt_more($more)
+{
+  return ' ...';
 }
-add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+add_filter('excerpt_more', 'wpdocs_excerpt_more');
 
 // Adding stylesheets
 
@@ -61,6 +63,15 @@ function cssGlobals()
   );
 
   wp_enqueue_style('global');
+
+  wp_register_style(
+    'header',
+    get_template_directory_uri() . '/header.css',
+    array(),
+    '1.0',
+  );
+
+  wp_enqueue_style('header');
 
   wp_register_style(
     'fontawesome',
@@ -169,13 +180,6 @@ wp_register_style(
 wp_register_script(
   'category',
   get_template_directory_uri() . '/category.js',
-  array(),
-  '1.0',
-);
-
-wp_register_style(
-  'header',
-  get_template_directory_uri() . '/organisms/header.css',
   array(),
   '1.0',
 );

@@ -4,6 +4,11 @@
 }
 
 html,
+body {
+  overflow-x: hidden;
+}
+
+html,
 body,
 pre,
 code,
@@ -80,6 +85,12 @@ h3 {
   margin-right: auto;
 }
 
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
 @media (min-width: 768px) {
   .container {
     max-width: 720px;
@@ -95,6 +106,9 @@ h3 {
 }
 
 @media (min-width: 1024px) {
+  .desktop-hide {
+    display: none;
+  }
   .container {
     max-width: 960px;
   }

@@ -31,5 +31,35 @@
 
   <?php wp_head(); ?>
 </head>
+<header id="header" class="header">
+  <a class="logo" href="<?= get_site_url(); ?>">
+    <h3 class="logo-content">Felipe A.Bosi</h3>
+    <p class="logo-content">Backend Engineer</p>
+  </a>
+  <div id="menu_toggle">
+    <input id="menu_toggle__input" type="checkbox" class="desktop-hide">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <nav class="header-nav top-menu">
+
+      <ul class="header-nav-list">
+        <?php $menu_items = wp_get_nav_menu_items('Top menu') ?>
+        <? if($menu_items): ?>
+        <?php foreach ($menu_items as $item) : ?>
+
+          <li class="header-nav-item menu-item">
+            <a class="header-nav-item" href="<?= $item->url; ?>">
+              <h3 class="header-nav-item"><?= $item->title; ?></h3>
+            </a>
+          </li>
+        <?php endforeach; ?>
+        <? endif; ?>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 <body>
