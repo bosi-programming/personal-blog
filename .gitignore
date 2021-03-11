@@ -1,6 +1,7 @@
 # node
+node_modules/
 
-wp-content/themes/LumaHealth2/node_modules/
+wp-content/themes/bosibackend/svelte-components/node_modules/
 *~
 .DS_Store
 .svn
