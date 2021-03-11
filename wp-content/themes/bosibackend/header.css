@@ -66,6 +66,18 @@
   }
 }
 
+@media (min-width: 2000px) {
+  .header-nav-item {
+    font-size: 22px;
+  }
+  .logo {
+    margin-left: 10vw;
+  }
+  .header-nav {
+    margin-right: 10vw;
+  }
+}
+
 /* Menu on mobile */
 
 @media (max-width: 768px) {
