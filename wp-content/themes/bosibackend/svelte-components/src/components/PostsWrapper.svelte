@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, beforeUpdate } from "svelte";
+  import { afterUpdate, tick } from "svelte";
 
   import type { article } from "./article.type";
   import PostCard from "./PostCard.svelte";
@@ -11,17 +11,22 @@
   export let category: number | null;
   let articles: article[] = [];
 
+  $: if (category) {
+    articles = [];
+  }
+
   const fetchArticles = async () => {
     const response = await fetch(
       `${url}/posts?status=${status.toString()}&_fields=${fields.toString()}${
         category ? `&categories=${category}` : ""
       }`
     );
-    articles = await response.json();
+    return await response.json();
   };
 
-  onMount(() => fetchArticles());
-  beforeUpdate(() => fetchArticles());
+  afterUpdate(async () => {
+    articles = await fetchArticles();
+  });
 </script>
 
 <style>
