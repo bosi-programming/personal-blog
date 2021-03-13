@@ -89,9 +89,15 @@ h3 {
   body {
     font-size: 14px;
   }
+  main {
+    padding-bottom: 45px;
+  }
 }
 
 @media (min-width: 768px) {
+  main {
+    padding-bottom: 80px;
+  }
   .container {
     max-width: 720px;
   }

@@ -1,38 +1,11 @@
 <script lang="ts">
-  import { afterUpdate, tick } from "svelte";
-
   import type { article } from "./article.type";
   import PostCard from "./PostCard.svelte";
 
-  const url = process.env.wordpressRestUrl;
-  const fields = ["link", "title", "date", "excerpt"];
-  const status = ["publish"];
-
-  export let category: number | null;
-  let articles: article[] = [];
-
-  $: if (category) {
-    articles = [];
-  }
-
-  const fetchArticles = async () => {
-    const response = await fetch(
-      `${url}/posts?status=${status.toString()}&_fields=${fields.toString()}${
-        category ? `&categories=${category}` : ""
-      }`
-    );
-    return await response.json();
-  };
-
-  afterUpdate(async () => {
-    articles = await fetchArticles();
-  });
+  export let articles: article[] = [];
 </script>
 
 <style>
-  .post-card {
-    width: initial !important;
-  }
   .posts-wrapper {
     margin-top: 45px;
   }

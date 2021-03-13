@@ -19,7 +19,6 @@
 }
 
 .carrousel {
-  margin-top: 60px;
   display: flex;
   align-items: center;
 }
@@ -46,6 +45,7 @@
 }
 
 .carrousel-wrapper {
+  padding: 45px 0;
   max-width: 280px;
   margin-left: auto;
   margin-right: auto;
@@ -53,6 +53,7 @@
 
 @media (min-width: 768px) {
   .carrousel-wrapper {
+    padding: 60px 0;
     max-width: 640px;
   }
 }

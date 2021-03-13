@@ -1,15 +1,52 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  import type { category } from "./category.type";
+
+  type backend = {
+    id: number;
+    name: string;
+  };
+
   window.onscroll = function () {
     window.scrollTo(0, 0);
   };
 
-  export let category: number | null;
+  export let changeCategory: (category: number | null) => void;
+  let categories: category[] = [];
+  let isToHide = false;
+
+  const url = process.env.wordpressRestUrl;
+  const fields = ["id", "name"];
+
+  const fetchCategories = async () => {
+    const response = await fetch(
+      `${url}/categories?_fields=${fields.toString()}`
+    );
+    const responseJson = await response.json();
+    responseJson.forEach((el: backend) => {
+      const categoryName = el.name;
+      categories[categoryName] = el.id;
+    });
+  };
+
+  onMount(() => fetchCategories());
+
+  const hideDialog = () => {
+    isToHide = true;
+    window.onscroll = null;
+  };
+
   const handleCategoryChange = (newCategory: number) => {
-    category = newCategory;
+    changeCategory(newCategory);
+    hideDialog();
   };
 </script>
 
 <style>
+  .hide {
+    display: none !important;
+  }
   .dialog {
     display: block;
     position: absolute;
@@ -56,8 +93,8 @@
   }
 </style>
 
-<div>
-  <div class="bg" />
+<div class:hide={isToHide}>
+  <div class="bg" on:click={() => hideDialog()} />
   <dialog class="nes-dialog dialog" id="dialog-default">
     <form method="dialog">
       <p class="title">Hello,</p>
@@ -67,12 +104,20 @@
       </p>
       <p class="question">On the options bellow, what identify you the best:</p>
       <menu class="dialog-menu menu">
-        <button class="nes-btn is-primary">Tech Recruiter</button>
         <button
           class="nes-btn is-primary"
-          on:click={() => handleCategoryChange(2)}>Programmer / Tech Fan</button>
-        <button class="nes-btn is-primary">Philosopher</button>
-        <button class="nes-btn is-primary"  on:click={() => handleCategoryChange(null)}>Curious Person</button>
+          on:click={() => handleCategoryChange(categories['Programming'] || null)}>Tech
+          Recruiter</button>
+        <button
+          class="nes-btn is-primary"
+          on:click={() => handleCategoryChange(categories['Programming'] || null)}>Programmer
+          / Tech Fan</button>
+        <button
+          class="nes-btn is-primary"
+          on:click={() => handleCategoryChange(categories['Philosophy'] || null)}>Philosopher</button>
+        <button
+          class="nes-btn is-primary"
+          on:click={() => handleCategoryChange(null)}>Curious Person</button>
       </menu>
     </form>
   </dialog>

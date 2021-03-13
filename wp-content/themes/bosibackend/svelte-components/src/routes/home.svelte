@@ -1,29 +1,37 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import type { category } from '../components/category.type';
+  import type { article } from "../components/article.type";
   import Dialog from "../components/Dialog.svelte";
-  import PostsWrapper from '../components/PostsWrapper.svelte';
+  import PostsWrapper from "../components/PostsWrapper.svelte";
 
   const url = process.env.wordpressRestUrl;
   const fields = ["link", "title", "date", "excerpt"];
+  const status = ["publish"];
 
-  let selectedCategory: number | null;
-  let categories : category[] = [];
+  let articles: article[] = [];
 
-  const fetchCategories = async () => {
+  const fetchArticles = async (category: number | null = null) => {
+    if (articles.length !== 0) {
+      articles = [];
+    }
     const response = await fetch(
-      `${url}/categories?_fields=${fields.toString()}`    );
-    categories = await response.json();
+      `${url}/posts?status=${status.toString()}&_fields=${fields.toString()}${
+        category ? `&categories=${category}` : ""
+      }`
+    );
+    articles = await response.json();
   };
 
-  onMount(() => fetchCategories());
+  onMount(async () => {
+    fetchArticles();
+  });
 </script>
 
 <style>
 </style>
 
 <div class="container">
-  <Dialog bind:category={selectedCategory} />
-  <PostsWrapper category={selectedCategory} />
+  <Dialog changeCategory={fetchArticles} />
+  <PostsWrapper {articles} />
 </div>

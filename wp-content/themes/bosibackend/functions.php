@@ -183,3 +183,17 @@ wp_register_script(
   array(),
   '1.0',
 );
+
+wp_register_style(
+  'svelte',
+  get_template_directory_uri() . '/svelte-components/public/build/bundle.css',
+  array(),
+  '1.0',
+);
+
+wp_register_script(
+  'svelte',
+  get_template_directory_uri() . '/svelte-components/public/build/bundle.js',
+  array(),
+  '1.0',
+);

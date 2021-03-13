@@ -2,6 +2,22 @@
   import type { article } from './article.type';
 
   export let item: article;
+
+  const renderHtml = (html: string) => {
+    const stringWithoutTags = html.replace(/<[^>]*>?/gm, '');
+    const stringWithCorrectChars = stringWithoutTags.replace('&#8230;', '...');
+    return stringWithCorrectChars;
+  }
+
+  const handleDate = (dateString: Date) => {
+    const date = new Date(dateString);
+    const dateOptions = {
+      day: 'numeric',
+      month: 'short',
+    }
+
+    return date.toLocaleString('en-us', dateOptions);
+  }
 </script>
 
 <style>
@@ -34,7 +50,7 @@
     rel="bookmark"
     title="Permanent Link to {item.title.rendered}">
     <h3>{item.title.rendered}</h3>
-    <p class="card-text">{item.excerpt.rendered}</p>
-    <p class="card-text">{item.date}</p>
+    <p class="card-text">{renderHtml(item.excerpt.rendered)}</p>
+    <p class="card-text">{handleDate(item.date)}</p>
   </a>
 </article>
