@@ -74,7 +74,7 @@
   }
   @media (max-width: 767px) {
     .dialog :is(button) {
-      font-size: 12px;
+      font-size: 10px;
     }
     .dialog :is(p) {
       font-size: 16px;
@@ -99,10 +99,9 @@
     <form method="dialog">
       <p class="title">Hello,</p>
       <p>
-        This website has a lot of diversified content. To help you have the best
-        experience, I would like to ask you a question first.
+        To help you have the best experience, I would like to ask you a question
+        first. On the options bellow, what identify you the best:
       </p>
-      <p class="question">On the options bellow, what identify you the best:</p>
       <menu class="dialog-menu menu">
         <button
           class="nes-btn is-primary"
@@ -110,8 +109,7 @@
           Recruiter</button>
         <button
           class="nes-btn is-primary"
-          on:click={() => handleCategoryChange(categories['Programming'] || null)}>Programmer
-          / Tech Fan</button>
+          on:click={() => handleCategoryChange(categories['Programming'] || null)}>Programmer</button>
         <button
           class="nes-btn is-primary"
           on:click={() => handleCategoryChange(categories['Philosophy'] || null)}>Philosopher</button>
