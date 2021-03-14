@@ -1,0 +1,19 @@
+.footer {
+  padding: 40px 0 30px;
+  background-color: #212529;
+}
+.footer-title {
+  margin-top: 40px;
+  color: white;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .footer-title {
+    max-width: 82vw;
+  }
+}
+@media (min-width: 1024px) {
+  .footer-title {
+    max-width: 65vw;
+  }
+}

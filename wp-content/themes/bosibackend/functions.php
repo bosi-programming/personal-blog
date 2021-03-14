@@ -74,6 +74,15 @@ function cssGlobals()
   wp_enqueue_style('header');
 
   wp_register_style(
+    'footer',
+    get_template_directory_uri() . '/footer.css',
+    array(),
+    '1.0',
+  );
+
+  wp_enqueue_style('footer');
+
+  wp_register_style(
     'fontawesome',
     get_template_directory_uri() . '/assets/css/all.min.css',
     array(),
