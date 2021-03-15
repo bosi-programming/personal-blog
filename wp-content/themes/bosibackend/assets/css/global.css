@@ -10,8 +10,6 @@ body {
 
 html,
 body,
-pre,
-code,
 kbd,
 samp {
   font-family: "Press Start 2P", cursive;
@@ -24,8 +22,7 @@ pre code {
 code {
   white-space: pre-wrap;
   overflow-wrap: break-word;
-  font-family: "Press Start 2P", cursive !important;
-  font-size: 12px !important;
+  font-family: monospace;
 }
 
 menu {

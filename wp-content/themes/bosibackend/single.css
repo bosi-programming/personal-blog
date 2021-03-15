@@ -3,6 +3,11 @@
   width: 26px;
 }
 
+/* Removes highlight js background */
+.hljs {
+  background: none !important;
+}
+
 .post__content .nes-container {
   margin: 30px auto;
 }

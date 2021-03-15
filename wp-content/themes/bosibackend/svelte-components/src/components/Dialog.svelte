@@ -37,7 +37,7 @@
     window.onscroll = null;
   };
 
-  const handleCategoryChange = (newCategory: number) => {
+  const handleCategoryChange = (newCategory: number | string) => {
     changeCategory(newCategory);
     hideDialog();
   };
@@ -115,7 +115,7 @@
           on:click={() => handleCategoryChange(categories['Philosophy'] || null)}>Philosopher</button>
         <button
           class="nes-btn is-primary"
-          on:click={() => handleCategoryChange(null)}>Curious Person</button>
+          on:click={() => handleCategoryChange([categories['Philosophy'], categories['Programming']].toString() || null)}>Curious Person</button>
       </menu>
     </form>
   </dialog>

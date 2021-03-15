@@ -180,6 +180,19 @@ wp_register_script(
 );
 
 wp_register_style(
+  'highlight',
+  get_template_directory_uri() . '/assets/highlight/styles/gruvbox-dark.css',
+  array(),
+  '1.0',
+);
+wp_register_script(
+  'highlight',
+  get_template_directory_uri() . '/assets/highlight/highlight.pack.js',
+  array(),
+  '1.0',
+);
+
+wp_register_style(
   'category',
   get_template_directory_uri() . '/category.css',
   array(),

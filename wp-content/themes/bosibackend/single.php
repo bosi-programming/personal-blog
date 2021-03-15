@@ -5,6 +5,8 @@ wp_enqueue_style('swiper');
 wp_enqueue_script('swiper');
 wp_enqueue_style('single');
 wp_enqueue_script('single');
+wp_enqueue_style('highlight');
+wp_enqueue_script('highlight');
 ?>
 
 <?php while (have_posts()) : the_post(); ?>
@@ -78,3 +80,4 @@ wp_enqueue_script('single');
 
 get_footer();
 ?>
+<script>hljs.highlightAll();</script>
