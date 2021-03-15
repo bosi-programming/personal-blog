@@ -6,7 +6,8 @@
   const renderHtml = (html: string) => {
     const stringWithoutTags = html.replace(/<[^>]*>?/gm, '');
     const stringWithCorrectChars = stringWithoutTags.replace('&#8230;', '...');
-    return stringWithCorrectChars;
+    const stringWithCorrectAposte = stringWithCorrectChars.replace('&#8217;', '\'');
+    return stringWithCorrectAposte;
   }
 
   const handleDate = (dateString: Date) => {
