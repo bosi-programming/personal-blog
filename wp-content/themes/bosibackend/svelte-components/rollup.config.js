@@ -46,8 +46,8 @@ export default {
   plugins: [
     replace({
       process: JSON.stringify({
-				env: {
-          wordpressRestUrl: production ? 'https://bosibackend.com/wp-json/wp/v2' : 'http://bosi-backend.local/wp-json/wp/v2',
+        env: {
+          wordpressRestUrl: "https://bosibackend.com/wp-json/wp/v2",
         },
       }),
     }),
