@@ -34,7 +34,7 @@
 <header id="header" class="header">
   <a class="logo" href="<?= get_site_url(); ?>">
     <h3 class="logo-content">Felipe A.Bosi</h3>
-    <p class="logo-content">Backend Engineer</p>
+    <p class="logo-content">Software Engineer</p>
   </a>
   <div id="menu_toggle">
     <input id="menu_toggle__input" type="checkbox" class="desktop-hide">

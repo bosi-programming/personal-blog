@@ -47,7 +47,7 @@ export default {
     replace({
       process: JSON.stringify({
         env: {
-          wordpressRestUrl: "https://bosibackend.com/wp-json/wp/v2",
+          wordpressRestUrl: "https://felipebosi.com/wp-json/wp/v2",
         },
       }),
     }),

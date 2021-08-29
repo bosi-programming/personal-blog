@@ -12,7 +12,7 @@
     window.scrollTo(0, 0);
   };
 
-  export let changeCategory: (category: number | null) => void;
+  export let changeCategory: (category: number | string | null) => void;
   let categories: category[] = [];
   let isToHide = false;
 
@@ -43,6 +43,49 @@
   };
 </script>
 
+<div class:hide={isToHide}>
+  <div class="bg" on:click={() => hideDialog()} />
+  <dialog class="nes-dialog dialog" id="dialog-default">
+    <form method="dialog">
+      <p class="title">Hello,</p>
+      <p>
+        To help you have the best experience, I would like to ask you a question
+        first. On the options bellow, what identify you the best:
+      </p>
+      <menu class="dialog-menu menu">
+        <button
+          class="nes-btn is-primary"
+          on:click={() =>
+            handleCategoryChange(categories["Programming"] || null)}
+          >Tech Recruiter</button
+        >
+        <button
+          class="nes-btn is-primary"
+          on:click={() =>
+            handleCategoryChange(categories["Programming"] || null)}
+          >Programmer</button
+        >
+        <button
+          class="nes-btn is-primary"
+          on:click={() =>
+            handleCategoryChange(categories["Philosophy"] || null)}
+          >Philosopher</button
+        >
+        <button
+          class="nes-btn is-primary"
+          on:click={() =>
+            handleCategoryChange(
+              [
+                categories["Philosophy"],
+                categories["Programming"],
+              ].toString() || null
+            )}>Curious Person</button
+        >
+      </menu>
+    </form>
+  </dialog>
+</div>
+
 <style>
   .hide {
     display: none !important;
@@ -69,9 +112,6 @@
     z-index: 1000;
     background: rgba(0, 0, 0, 0.66);
   }
-  .question {
-    margin-bottom: 30px;
-  }
   @media (max-width: 767px) {
     .dialog :is(button) {
       font-size: 10px;
@@ -92,31 +132,3 @@
     }
   }
 </style>
-
-<div class:hide={isToHide}>
-  <div class="bg" on:click={() => hideDialog()} />
-  <dialog class="nes-dialog dialog" id="dialog-default">
-    <form method="dialog">
-      <p class="title">Hello,</p>
-      <p>
-        To help you have the best experience, I would like to ask you a question
-        first. On the options bellow, what identify you the best:
-      </p>
-      <menu class="dialog-menu menu">
-        <button
-          class="nes-btn is-primary"
-          on:click={() => handleCategoryChange(categories['Programming'] || null)}>Tech
-          Recruiter</button>
-        <button
-          class="nes-btn is-primary"
-          on:click={() => handleCategoryChange(categories['Programming'] || null)}>Programmer</button>
-        <button
-          class="nes-btn is-primary"
-          on:click={() => handleCategoryChange(categories['Philosophy'] || null)}>Philosopher</button>
-        <button
-          class="nes-btn is-primary"
-          on:click={() => handleCategoryChange([categories['Philosophy'], categories['Programming']].toString() || null)}>Curious Person</button>
-      </menu>
-    </form>
-  </dialog>
-</div>

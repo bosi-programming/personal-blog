@@ -1,11 +1,31 @@
 <script lang="ts">
   import type { article } from "./article.type";
+  import Loader from "./Loader.svelte";
   import PostCard from "./PostCard.svelte";
 
   export let articles: article[] = [];
 </script>
 
+{#if articles && articles.length > 0}
+  <div class="posts-wrapper">
+    {#each articles as article}
+      <PostCard item={article} />
+    {/each}
+  </div>
+{:else}
+  <div class="flex-center">
+    <Loader />
+  </div>
+{/if}
+
 <style>
+  .flex-center {
+    display: flex;
+    height: 75vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
   .posts-wrapper {
     margin-top: 45px;
   }
@@ -31,11 +51,3 @@
     }
   }
 </style>
-
-<div class="posts-wrapper">
-  {#each articles as article}
-    <PostCard item={article} />
-  {:else}
-    <p>Loading...</p>
-  {/each}
-</div>
